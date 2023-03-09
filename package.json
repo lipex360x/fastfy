@@ -9,7 +9,9 @@
     "start:dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
-    "lint": "npx eslint src --ext .ts --fix"
+    "lint": "npx eslint src --ext .ts --fix",
+    
+    "prisma:migrate": "npx prisma migrate dev"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "1.2.0",
