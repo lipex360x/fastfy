@@ -8,9 +8,9 @@ export default defineConfig({
       exclude: [
         '**/node_modules/**',
         '**/dist/**',
-        '**/src/env/*',
-        '**/src/lib/*',
-        '**/src/repositories/prisma/*',
+        '**/src/**/env/*',
+        '**/src/**/lib/*',
+        '**/src/**/repositories/prisma/*',
       ],
     },
   },

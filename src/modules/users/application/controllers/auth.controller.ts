@@ -1,10 +1,9 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
 
 import { InvalidCredentialError } from '@/modules/users/domain/errors'
-import { PrismaUsersRepository } from '@/modules/users/infra/repositories'
 
 import { AuthSchema } from '../../domain/schemas'
-import { AuthUseCase } from '../usecases'
+import { makeAuthFactory } from '../factories/auth.factory'
 
 export async function authController(
   request: FastifyRequest,
@@ -13,9 +12,7 @@ export async function authController(
   const { email, password } = AuthSchema.parse(request.body)
 
   try {
-    const usersRepository = new PrismaUsersRepository()
-
-    const authUseCase = new AuthUseCase(usersRepository)
+    const authUseCase = makeAuthFactory()
 
     await authUseCase.execute({ email, password })
   } catch (error) {
