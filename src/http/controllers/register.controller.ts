@@ -1,7 +1,7 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
 
-import { registerUseCase } from '@/usecases/register.usecase'
+import { registerUseCase } from '@/usecases'
 
 export async function registerController(
   request: FastifyRequest,
