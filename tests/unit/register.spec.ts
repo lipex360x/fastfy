@@ -2,8 +2,8 @@ import { compare } from 'bcryptjs'
 import { makeUser } from 'tests/mocks'
 import { describe, expect, it } from 'vitest'
 
-import { UserAlreadyExistsError } from '@/core/errors'
 import { RegisterUseCase } from '@/modules/users/application/usecases'
+import { UserAlreadyExistsError } from '@/modules/users/domain/errors'
 import { InMemoryUsersRepository } from '@/modules/users/infra/repositories'
 
 describe('RegisterUseCase', () => {
