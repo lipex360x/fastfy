@@ -1,2 +1,2 @@
-export * from './prisma/prisma.users.repository'
+export * from './prisma'
 export * from './users-repository.interface'
