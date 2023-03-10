@@ -1,4 +1,4 @@
-import { UserProps } from '@/schemas'
+import { UserProps } from '@/modules/users/domain/schemas'
 
 export const makeUser = (props?: Partial<UserProps>) => ({
   name: 'john doe',

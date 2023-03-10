@@ -1,9 +1,10 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
 
-import { PrismaUsersRepository } from '@/repositories'
-import { UserSchema } from '@/schemas'
-import { RegisterUseCase } from '@/usecases'
-import { UserAlreadyExistsError } from '@/usecases/errors'
+import { UserAlreadyExistsError } from '@/core/errors'
+import { PrismaUsersRepository } from '@/modules/users/infra/repositories'
+
+import { RegisterUseCase } from '../../application/usecases'
+import { UserSchema } from '../../domain/schemas'
 
 export async function registerController(
   request: FastifyRequest,

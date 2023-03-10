@@ -1,6 +1,6 @@
 import { Prisma } from 'prisma/prisma-client'
 
-import { prisma } from '@/lib'
+import { prisma } from '@/core/lib'
 
 import { IUsersRepository } from '../users-repository.interface'
 
