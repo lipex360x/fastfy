@@ -1,0 +1,20 @@
+{
+  "extends": [ "@rocketseat/eslint-config/node" ],
+  "plugins": ["eslint-plugin-import-helpers"],
+
+  "rules": {
+    "camelcase": "off",
+    "no-useless-constructor": "off",
+
+    "import-helpers/order-imports": ["error", {
+      "newlinesBetween": "always",
+      "groups": [
+        "absolute",
+        "module",
+        "/^@/",
+        "index"
+      ],
+      "alphabetize": { "order": "asc", "ignoreCase": true }
+    }]
+  }
+}
