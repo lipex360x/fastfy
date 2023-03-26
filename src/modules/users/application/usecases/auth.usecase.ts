@@ -1,7 +1,7 @@
 import { compare } from 'bcryptjs'
 
 import { InvalidCredentialError } from '../../domain/errors'
-import { IUsersRepository } from '../../infra/repositories'
+import { IUsersRepository } from '../../infra/repositories/interfaces'
 
 interface RequestProps {
   email: string

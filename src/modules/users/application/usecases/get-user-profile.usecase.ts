@@ -1,6 +1,6 @@
 import { ResourceNotFoundError } from '@/core/errors'
 
-import { IUsersRepository } from '../../infra/repositories'
+import { IUsersRepository } from '../../infra/repositories/interfaces'
 
 interface RequestProps {
   userId: string
