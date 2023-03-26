@@ -1,0 +1,1 @@
+export const MAX_MINUTES_FROM_CHECK_IN = 20
