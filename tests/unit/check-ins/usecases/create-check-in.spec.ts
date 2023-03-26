@@ -11,7 +11,7 @@ import {
 import { CreateCheckInUseCase } from '@/modules/check-ins/application/usecases'
 import { InMemoryCheckInsRepository } from '@/modules/check-ins/infra/repositories/in-memory'
 import { InMemoryGymsRepository } from '@/modules/gyms/infra/repositories/in-memory'
-import { InMemoryUsersRepository } from '@/modules/users/infra/repositories'
+import { InMemoryUsersRepository } from '@/modules/users/infra/repositories/in-memory'
 import { Decimal } from '@prisma/client/runtime/library'
 
 let checkinRepository: InMemoryCheckInsRepository

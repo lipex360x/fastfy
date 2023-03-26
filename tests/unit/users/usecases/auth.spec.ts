@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 
 import { AuthUseCase } from '@/modules/users/application/usecases'
 import { InvalidCredentialError } from '@/modules/users/domain/errors'
-import { InMemoryUsersRepository } from '@/modules/users/infra/repositories'
+import { InMemoryUsersRepository } from '@/modules/users/infra/repositories/in-memory'
 
 let usersRepository: InMemoryUsersRepository
 let sut: AuthUseCase

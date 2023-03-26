@@ -2,7 +2,7 @@ import { beforeAll, describe, expect, it } from 'vitest'
 
 import { ResourceNotFoundError } from '@/core/errors'
 import { RetrieveUserHandler } from '@/modules/check-ins/application/handlers'
-import { InMemoryUsersRepository } from '@/modules/users/infra/repositories'
+import { InMemoryUsersRepository } from '@/modules/users/infra/repositories/in-memory'
 
 let usersRepository: InMemoryUsersRepository
 let sut: RetrieveUserHandler

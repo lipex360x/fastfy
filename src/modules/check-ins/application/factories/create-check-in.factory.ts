@@ -1,5 +1,5 @@
 import { PrismaGymsRepository } from '@/modules/gyms/infra/repositories/prisma'
-import { PrismaUsersRepository } from '@/modules/users/infra/repositories'
+import { PrismaUsersRepository } from '@/modules/users/infra/repositories/prisma'
 
 import { PrismaCheckInsRepository } from '../../infra/repositories/prisma'
 import {
