@@ -1,15 +1,9 @@
 import { FastifyInstance } from 'fastify'
 
-import {
-  authController,
-  createUserController,
-  profileController,
-} from '@/modules/users/infra/controllers'
+import { privateRoutes } from './private'
+import { publicRoutes } from './public'
 
 export async function routes(app: FastifyInstance) {
-  app.post('/users', createUserController)
-  app.post('/session', authController)
-
-  // Authenticated
-  app.get('/me', profileController)
+  publicRoutes(app)
+  privateRoutes(app)
 }
