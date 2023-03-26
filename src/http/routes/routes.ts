@@ -3,6 +3,7 @@ import { FastifyInstance } from 'fastify'
 import {
   authController,
   createUserController,
+  profileController,
 } from '@/modules/users/infra/controllers'
 
 export async function routes(app: FastifyInstance) {
@@ -10,5 +11,5 @@ export async function routes(app: FastifyInstance) {
   app.post('/session', authController)
 
   // Authenticated
-  // app.get('/me', profileController)
+  app.get('/me', profileController)
 }
