@@ -1,7 +1,8 @@
 import { hash } from 'bcryptjs'
 
 import { UserAlreadyExistsError } from '@/modules/users/domain/errors'
-import { IUsersRepository } from '@/modules/users/infra/repositories'
+
+import { IUsersRepository } from '../../infra/repositories/interfaces'
 
 interface RequestProps {
   name: string

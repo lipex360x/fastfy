@@ -14,7 +14,14 @@ export async function createUserController(
   try {
     const createUserUseCase = createUserFactory()
 
-    await createUserUseCase.execute({ name, email, password })
+    const { user } = await createUserUseCase.execute({ name, email, password })
+
+    return reply.status(201).send({
+      user: {
+        ...user,
+        password_hash: undefined,
+      },
+    })
   } catch (error) {
     if (error instanceof UserAlreadyExistsError)
       return reply.status(409).send({ message: error.message })
@@ -22,5 +29,5 @@ export async function createUserController(
     throw error
   }
 
-  return reply.status(201).send()
+  // return reply.status(201).send()
 }
