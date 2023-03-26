@@ -32,3 +32,18 @@ GymPass Style App
 - [X] os dados da aplicação precisam estar persistidos em um banco PostegreSQL
 - [X] todas as listas de dados precisam estar paginadas com 20 items por página
 - [ ] o usuário deve ser identificado por um JWT
+
+
+cd src/modules && mkdir [MODULE] && cd [MODULE] && module=$(pwd)
+
+cd $module && \
+mkdir -p application/usecases && touch $_/index.ts && \
+mkdir -p domain/constants && touch $_/index.ts && \
+mkdir -p domain/errors && touch $_/index.ts && \
+mkdir -p domain/factories && touch $_/index.ts && \ 
+mkdir -p domain/schemas && touch $_/index.ts && \
+mkdir -p infra/controllers && touch $_/index.ts && \
+mkdir -p infra/repositories && touch $_/index.ts && \
+mkdir -p infra/repositories/in-memory && touch $_/index.ts && \
+mkdir -p infra/repositories/interfaces && touch $_/index.ts && \
+mkdir -p infra/repositories/prisma && touch $_/index.ts

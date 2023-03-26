@@ -1,11 +1,14 @@
-import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
+import { FastifyInstance } from 'fastify'
 
-import { createUserController } from '@/modules/users/infra/controllers/create-user.controller'
+import {
+  authController,
+  createUserController,
+} from '@/modules/users/infra/controllers'
 
 export async function routes(app: FastifyInstance) {
   app.post('/users', createUserController)
+  app.post('/session', authController)
 
-  app.get('/', (_request: FastifyRequest, reply: FastifyReply) => {
-    return reply.status(200).send({ message: 'hello fastfy' })
-  })
+  // Authenticated
+  // app.get('/me', profileController)
 }
