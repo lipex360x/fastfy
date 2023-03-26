@@ -15,5 +15,6 @@ export default defineConfig({
         '**/tests/mocks/*',
       ],
     },
+    environmentMatchGlobs: [['tests/e2e/**', 'prisma']],
   },
 })
