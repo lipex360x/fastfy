@@ -20,7 +20,7 @@ export const makeUserDB = async (props?: Partial<User>) => ({
   id: randomUUID(),
   created_at: new Date(),
   password_hash: await hash(makeUser(props).password, 6),
-  ...makeUser(),
 
+  ...makeUser(),
   ...props,
 })
