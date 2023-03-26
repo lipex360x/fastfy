@@ -1,0 +1,2 @@
+export const MAX_DISTANCE_IN_KILOMETERS = 0.1
+export const MAX_DISTANCE_NEARBY = 10
