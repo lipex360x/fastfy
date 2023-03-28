@@ -1,5 +1,6 @@
 import { env } from '@/core/env'
 
+import { version } from '../../package.json'
 import { app } from './app'
 
 app
@@ -9,4 +10,5 @@ app
   })
   .then(() => {
     console.log('🚀 HTTP Server Running')
+    console.log(version)
   })
