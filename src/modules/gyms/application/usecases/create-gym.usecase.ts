@@ -1,12 +1,5 @@
+import { CreateGymProps } from '../../domain/schemas'
 import { IGymsRepository } from '../../infra/repositories/interfaces'
-
-type RequestProps = {
-  title: string
-  description: string | null
-  phone: string | null
-  latitude: number
-  longitude: number
-}
 
 export class CreateGymUseCase {
   constructor(private readonly gymsRepository: IGymsRepository) {}
@@ -17,7 +10,7 @@ export class CreateGymUseCase {
     latitude,
     longitude,
     phone,
-  }: RequestProps) {
+  }: CreateGymProps) {
     const gym = await this.gymsRepository.create({
       title,
       description,

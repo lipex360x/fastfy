@@ -1,14 +1,13 @@
+import { ListGymsNearbyProps } from '../../domain/schemas'
 import { IGymsRepository } from '../../infra/repositories/interfaces'
-
-interface RequestProps {
-  userLatitude: number
-  userLongitude: number
-}
 
 export class ListGymsNearbyUseCase {
   constructor(private readonly gymsRepository: IGymsRepository) {}
 
-  async execute({ userLatitude, userLongitude }: RequestProps) {
+  async execute({
+    latitude: userLatitude,
+    longitude: userLongitude,
+  }: ListGymsNearbyProps) {
     const gyms = await this.gymsRepository.findManyNearby({
       latitude: userLatitude,
       longitude: userLongitude,

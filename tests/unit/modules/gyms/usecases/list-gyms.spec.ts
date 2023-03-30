@@ -34,7 +34,7 @@ describe('ListGymsUseCase', () => {
     })
 
     // act
-    const { gyms } = await sut.execute({ query: 'Gym' })
+    const { gyms } = await sut.execute({ q: 'Gym' })
 
     // assert
     expect(gyms).toHaveLength(2)
@@ -64,7 +64,7 @@ describe('ListGymsUseCase', () => {
     }
 
     // act
-    const { gyms } = await sut.execute({ query: 'Gym', page: 2 })
+    const { gyms } = await sut.execute({ q: 'Gym', page: 2 })
 
     // assert
     expect(gyms).toHaveLength(2)

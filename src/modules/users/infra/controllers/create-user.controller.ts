@@ -28,6 +28,4 @@ export async function createUserController(
 
     throw error
   }
-
-  // return reply.status(201).send()
 }

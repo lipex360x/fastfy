@@ -35,8 +35,8 @@ describe('ListGymsUseCase', () => {
 
     // act
     const { gyms } = await sut.execute({
-      userLatitude: 37.127068,
-      userLongitude: -121.957982,
+      latitude: 37.127068,
+      longitude: -121.957982,
     })
 
     // assert
