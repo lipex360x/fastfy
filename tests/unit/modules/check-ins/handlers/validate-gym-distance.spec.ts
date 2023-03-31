@@ -22,8 +22,8 @@ describe('ValidateGymDistance', () => {
       request: {
         userId,
         gymId: retrieveGym.id,
-        userLatitude: 37.1193142,
-        userLongitude: -121.951813,
+        latitude: 37.1193142,
+        longitude: -121.951813,
       },
       retrieveGym,
     })
@@ -49,8 +49,8 @@ describe('ValidateGymDistance', () => {
       request: {
         gymId: retrieveGym.id,
         userId,
-        userLatitude: 37.127068,
-        userLongitude: -121.957982,
+        latitude: 37.127068,
+        longitude: -121.957982,
       },
       retrieveGym,
     })

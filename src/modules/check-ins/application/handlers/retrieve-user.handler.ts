@@ -1,17 +1,12 @@
 import { ResourceNotFoundError } from '@/core/errors'
-import { IUsersRepository } from '@/modules/users/infra/repositories'
+import { IUsersRepository } from '@/modules/users/infra/repositories/interfaces'
 
-interface RequestProps {
-  userId: string
-  gymId: string
-  userLatitude: number
-  userLongitude: number
-}
+import { CreateCheckInProps } from '../../domain/schemas'
 
 export class RetrieveUserHandler {
   constructor(private readonly usersRepository: IUsersRepository) {}
 
-  async handler(request: RequestProps) {
+  async handler(request: CreateCheckInProps) {
     const user = await this.usersRepository.findById(request.userId)
 
     if (!user) throw new ResourceNotFoundError()

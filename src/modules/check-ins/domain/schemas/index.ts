@@ -1,1 +1,1 @@
-export * from './check-in.schema'
+export * from './create-check-in.schema'

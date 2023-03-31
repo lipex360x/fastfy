@@ -2,6 +2,7 @@ import { CheckIn } from 'prisma/prisma-client'
 
 import { PipelineBuilder } from '@/core/pipeline'
 
+import { CreateCheckInProps } from '../../domain/schemas'
 import {
   CreateCheckInHandler,
   RetrieveCheckInHandler,
@@ -10,15 +11,8 @@ import {
   ValidateGymDistanceHandler,
 } from '../handlers'
 
-interface RequestProps {
-  userId: string
-  gymId: string
-  userLatitude: number
-  userLongitude: number
-}
-
 export class CreateCheckInUseCase {
-  private readonly pipeline = new PipelineBuilder<RequestProps>()
+  private readonly pipeline = new PipelineBuilder<CreateCheckInProps>()
 
   constructor(
     private readonly retrieveUserHandler: RetrieveUserHandler,
@@ -28,7 +22,7 @@ export class CreateCheckInUseCase {
     private readonly createCheckInHandler: CreateCheckInHandler,
   ) {}
 
-  async execute(request: RequestProps) {
+  async execute(request: CreateCheckInProps) {
     const checkIn: CheckIn = await this.pipeline
       .input(request)
       .step(this.retrieveUserHandler)

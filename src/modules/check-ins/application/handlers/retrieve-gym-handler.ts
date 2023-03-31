@@ -1,17 +1,12 @@
 import { ResourceNotFoundError } from '@/core/errors'
 import { IGymsRepository } from '@/modules/gyms/infra/repositories/interfaces'
 
-interface RequestProps {
-  userId: string
-  gymId: string
-  userLatitude: number
-  userLongitude: number
-}
+import { CreateCheckInProps } from '../../domain/schemas'
 
 export class RetrieveGymHandler {
   constructor(private gymRepository: IGymsRepository) {}
 
-  async handler(request: RequestProps) {
+  async handler(request: CreateCheckInProps) {
     const retrieveGym = await this.gymRepository.findById(request.gymId)
 
     if (!retrieveGym) throw new ResourceNotFoundError()

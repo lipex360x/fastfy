@@ -1,8 +1,8 @@
-import { CheckInProps } from '@/modules/check-ins/domain/schemas'
+import { CreateCheckInProps } from '@/modules/check-ins/domain/schemas'
 import { ICheckInRepository } from '@/modules/check-ins/infra/repositories/interfaces'
 
 interface RequestProps {
-  request: CheckInProps
+  request: CreateCheckInProps
 }
 
 export class CreateCheckInHandler {

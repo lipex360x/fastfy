@@ -1,10 +1,10 @@
 import { MaxNumberOfCheckInError } from '@/modules/check-ins/domain/errors'
 import { ICheckInRepository } from '@/modules/check-ins/infra/repositories/interfaces'
 
-import { CheckInProps } from '../../domain/schemas'
+import { CreateCheckInProps } from '../../domain/schemas'
 
 interface RequestProps {
-  request: CheckInProps
+  request: CreateCheckInProps
 }
 
 export class RetrieveCheckInHandler {

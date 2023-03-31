@@ -4,19 +4,19 @@ import { getDistanceBetweenCoordinates } from '@/core/helpers'
 import { MAX_DISTANCE_IN_KILOMETERS } from '@/modules/users/domain/constants'
 import { MaxDistanceError } from '@/modules/users/domain/errors'
 
-import { CheckInProps } from '../../domain/schemas'
+import { CreateCheckInProps } from '../../domain/schemas'
 
 interface RequestProps {
   retrieveGym: Gym
-  request: CheckInProps
+  request: CreateCheckInProps
 }
 
 export class ValidateGymDistanceHandler {
   async handler({ request, retrieveGym }: RequestProps) {
     const distance = getDistanceBetweenCoordinates(
       {
-        latitude: request.userLatitude,
-        longitude: request.userLongitude,
+        latitude: request.latitude,
+        longitude: request.longitude,
       },
       {
         latitude: retrieveGym.latitude.toNumber(),
