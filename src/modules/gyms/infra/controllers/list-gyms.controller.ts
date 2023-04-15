@@ -7,7 +7,7 @@ export async function listGymsController(
   request: FastifyRequest,
   reply: FastifyReply,
 ) {
-  const { page, q } = ListGymsSchema.parse(request.body)
+  const { page, q } = ListGymsSchema.parse(request.query)
 
   const useCase = listGymsFactory()
 

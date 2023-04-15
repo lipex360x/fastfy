@@ -7,7 +7,7 @@ export async function listGymsNearbyController(
   request: FastifyRequest,
   reply: FastifyReply,
 ) {
-  const { latitude, longitude } = ListGymsNearbySchema.parse(request.body)
+  const { latitude, longitude } = ListGymsNearbySchema.parse(request.query)
 
   const useCase = listGymsNearbyFactory()
 
