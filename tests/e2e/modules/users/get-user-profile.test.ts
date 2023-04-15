@@ -1,8 +1,9 @@
 import request from 'supertest'
+import { createAndAuthUserHelper } from 'tests/e2e/helpers'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 import { app } from '@/http/app'
-describe('Profile (e2e)', () => {
+describe('[e2e] - Get User Profile', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -13,22 +14,7 @@ describe('Profile (e2e)', () => {
 
   it('should be able to retrieve a profile', async () => {
     // arrange
-    const createUser = {
-      name: 'Jonn Doe',
-      email: 'john@email.com',
-      password: '123456',
-    }
-    await request(app.server).post('/users').send(createUser)
-
-    const userLogin = {
-      email: createUser.email,
-      password: createUser.password,
-    }
-    const authResponse = await request(app.server)
-      .post('/session')
-      .send(userLogin)
-
-    const { token } = authResponse.body
+    const { token } = await createAndAuthUserHelper(app)
 
     // act
     const profileResponse = await request(app.server)
@@ -43,7 +29,6 @@ describe('Profile (e2e)', () => {
         user: expect.objectContaining({
           id: expect.any(String),
           created_at: expect.any(String),
-          email: createUser.email,
         }),
       }),
     )

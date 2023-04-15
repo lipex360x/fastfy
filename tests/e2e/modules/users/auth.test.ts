@@ -2,7 +2,7 @@ import request from 'supertest'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 import { app } from '@/http/app'
-describe('Auth (e2e)', () => {
+describe('[e2e] - Auth user', () => {
   beforeAll(async () => {
     await app.ready()
   })
