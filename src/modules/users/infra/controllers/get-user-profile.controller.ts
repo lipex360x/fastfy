@@ -2,7 +2,7 @@ import { FastifyRequest, FastifyReply } from 'fastify'
 
 import { getUserProfileFactory } from '../../domain/factories'
 
-export async function profileController(
+export async function getUserProfileController(
   request: FastifyRequest,
   reply: FastifyReply,
 ) {
