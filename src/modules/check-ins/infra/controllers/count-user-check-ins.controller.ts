@@ -1,8 +1,14 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
 
-export async function countUserCheckInsController(
-  request: FastifyRequest,
-  reply: FastifyReply,
-) {
-  return reply.send(201).send
+import { countUserCheckInFactory } from '../../application/factories'
+
+export class CountUserCheckInsController {
+  async execute(request: FastifyRequest, reply: FastifyReply) {
+    const { sub: userId } = request.user
+    const useCase = countUserCheckInFactory()
+
+    const { checkInsCount } = await useCase.execute({ userId })
+
+    return reply.status(200).send({ checkInsCount })
+  }
 }
