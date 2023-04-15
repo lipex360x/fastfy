@@ -1,4 +1,4 @@
-import { makeCheckIn, makeUserDB } from 'tests/unit/@mocks'
+import { makeUserDB } from 'tests/unit/@mocks'
 import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
 
 import { RetrieveCheckInHandler } from '@/modules/check-ins/application/handlers'
@@ -29,17 +29,15 @@ describe('RetrieveCheckIn', () => {
 
     const user = await usersRepository.create(await makeUserDB())
 
-    await checkinRepository.create(
-      makeCheckIn({ gymId: 'gym-id', userId: user.id }),
-    )
+    await checkinRepository.create({ gym_id: 'gym-id', user_id: user.id })
 
     // act
     const handlerResponse = sut.handler({
       request: {
         userId: user.id,
         gymId: 'gim-id',
-        userLatitude: 0,
-        userLongitude: 0,
+        latitude: 0,
+        longitude: 0,
       },
     })
 
@@ -55,9 +53,7 @@ describe('RetrieveCheckIn', () => {
 
     const user = await usersRepository.create(await makeUserDB())
 
-    await checkinRepository.create(
-      makeCheckIn({ gymId: 'gym-id', userId: user.id }),
-    )
+    await checkinRepository.create({ gym_id: 'gym-id', user_id: user.id })
 
     vi.setSystemTime(new Date(2022, 0, 2))
 
@@ -66,8 +62,8 @@ describe('RetrieveCheckIn', () => {
       request: {
         userId: user.id,
         gymId: 'gim-id',
-        userLatitude: 0,
-        userLongitude: 0,
+        latitude: 0,
+        longitude: 0,
       },
     })
 

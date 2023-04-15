@@ -32,8 +32,8 @@ describe('CreateCheckIn', () => {
       request: {
         userId: user.id,
         gymId: 'gim-id',
-        userLatitude: 0,
-        userLongitude: 0,
+        latitude: 0,
+        longitude: 0,
       },
     })
 

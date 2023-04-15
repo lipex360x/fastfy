@@ -46,6 +46,7 @@ describe('CreateCheckInUseCase', () => {
       createCheckInHandler,
     )
   })
+
   it('should be able to check in', async () => {
     // arrange
     const user = await usersRepository.create(await makeUserDB())

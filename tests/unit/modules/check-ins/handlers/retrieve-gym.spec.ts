@@ -24,8 +24,8 @@ describe('RetrieveGym', () => {
     const sutOnFail = sut.handler({
       userId: user.id,
       gymId: 'gym-01',
-      userLatitude: 0,
-      userLongitude: 0,
+      latitude: 0,
+      longitude: 0,
     })
 
     // assert
@@ -48,8 +48,8 @@ describe('RetrieveGym', () => {
     const handlerResponse = await sut.handler({
       userId: user.id,
       gymId: gym.id,
-      userLatitude: 0,
-      userLongitude: 0,
+      latitude: 0,
+      longitude: 0,
     })
 
     // assert

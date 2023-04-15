@@ -1,4 +1,4 @@
-import { makeGym, makeUserDB } from 'tests/unit/@mocks'
+import { makeUserDB } from 'tests/unit/@mocks'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { ValidateGymDistanceHandler } from '@/modules/check-ins/application/handlers'
@@ -14,7 +14,15 @@ describe('ValidateGymDistance', () => {
 
   it('should not be able to check in on distant gym', async () => {
     // arrange
-    const retrieveGym = makeGym()
+    const retrieveGym = {
+      id: 'gym-01',
+      title: 'The Gym',
+      description: 'gym',
+      latitude: new Decimal(37.2750131),
+      longitude: new Decimal(-121.9756296),
+      phone: '999',
+    }
+
     const { id: userId } = await makeUserDB()
 
     // act

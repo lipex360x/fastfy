@@ -17,8 +17,8 @@ describe('RetrieveUserHandler', () => {
     const sutOnFail = sut.handler({
       gymId: 'gym-id',
       userId: 'non-existing-user',
-      userLatitude: 0,
-      userLongitude: 0,
+      latitude: 0,
+      longitude: 0,
     })
 
     await expect(() => sutOnFail).rejects.toBeInstanceOf(ResourceNotFoundError)

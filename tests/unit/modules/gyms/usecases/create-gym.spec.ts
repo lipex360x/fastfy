@@ -1,4 +1,3 @@
-import { makeGym } from 'tests/unit/@mocks'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { CreateGymUseCase } from '@/modules/gyms/application/usecases'
@@ -14,7 +13,13 @@ describe('CreateGymUseCase', () => {
   })
   it('Should register a gym', async () => {
     // arrange
-    const newGym = makeGym()
+    const newGym = {
+      title: 'The Gym',
+      description: 'gym',
+      latitude: 37.2750131,
+      longitude: -121.9756296,
+      phone: '999',
+    }
 
     // act
     const { gym } = await sut.execute(newGym)

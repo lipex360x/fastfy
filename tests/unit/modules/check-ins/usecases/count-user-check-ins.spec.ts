@@ -1,4 +1,3 @@
-import { makeCheckIn } from 'tests/unit/@mocks'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { CountUserCheckInsUseCase } from '@/modules/check-ins/application/usecases'
@@ -15,17 +14,9 @@ describe('CountUserCheckInsUseCase', () => {
 
   it('should be able to count user check-ins', async () => {
     // arrange
-    await checkInRepository.create(
-      makeCheckIn({ gymId: 'gym-01', userId: 'user-01' }),
-    )
-
-    await checkInRepository.create(
-      makeCheckIn({ gymId: 'gym-02', userId: 'user-01' }),
-    )
-
-    await checkInRepository.create(
-      makeCheckIn({ gymId: 'gym-03', userId: 'user-01' }),
-    )
+    await checkInRepository.create({ gym_id: 'gym-01', user_id: 'user-01' })
+    await checkInRepository.create({ gym_id: 'gym-02', user_id: 'user-01' })
+    await checkInRepository.create({ gym_id: 'gym-03', user_id: 'user-01' })
 
     // act
     const { checkInsCount } = await sut.execute({ userId: 'user-01' })
