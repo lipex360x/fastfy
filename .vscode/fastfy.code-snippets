@@ -1,4 +1,32 @@
 {
+	"Schema Template": {
+		"prefix": "schemaTemplate",
+		"body": [
+			"import { z } from 'zod'",
+			"",
+			"export const ${1:SCHEMA_NAME}Schema = z.object({",
+			"  prop: z.string(),",
+			"})",
+			"",
+			"export type ${1:SCHEMA_NAME}Props = z.infer<typeof ${1:SCHEMA_NAME}Schema>",
+			"",
+		]
+	},
+
+	"Controller Template": {
+		"prefix": "controllerTemplate",
+		"body": [
+			"import { FastifyRequest, FastifyReply } from 'fastify'",
+			"",
+			"export class ${CONTROLLER_NAME}Controller {",
+			"  async execute(request: FastifyRequest, reply: FastifyReply) {",
+			"    return reply.status(200).send({ message: 'hello controller' })",
+			"  }",
+			"}",
+			"",
+		]
+	},
+
 	"Test E2E Template": {
 		"prefix": "teste2etemplate",
 		"body": [
@@ -16,13 +44,13 @@
 			"    await app.close()",
 			"  })",
 			"",
-			"  it('should be able to TEST SOMETHING', async () => {",
+			"  it('should be able to ${TEST_SOMETHING}', async () => {",
 			"    // arrange",
 			"",
 			"    // act",
 			"    const response = await request(app.server)",
-			"      .get('/THE_ROUTE')",
-			"      .set('Authorization', `Bearer `)",
+			"      .get('/${THE_ROUTE}')",
+			"      .set('Authorization', `Bearer ${token}`)",
 			"      .send()",
 			"",
 			"    // assert",
@@ -31,5 +59,6 @@
 			"})",
 			""
 		]
-	},	
+	},
+	
 }

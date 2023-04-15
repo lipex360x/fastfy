@@ -5,7 +5,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { prisma } from '@/core/lib'
 import { app } from '@/http/app'
 
-describe('[e2e] - Create Check In', () => {
+describe('[e2e] - Count User Check-ins', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -14,9 +14,11 @@ describe('[e2e] - Create Check In', () => {
     await app.close()
   })
 
-  it('should be able to create a check-in', async () => {
+  it('should be able to count user check-ins', async () => {
     // arrange
     const { token } = await makeAuthUser(app)
+
+    const user = await prisma.user.findFirstOrThrow()
 
     const gym = await prisma.gym.create({
       data: {
@@ -28,16 +30,27 @@ describe('[e2e] - Create Check In', () => {
       },
     })
 
+    await prisma.checkIn.createMany({
+      data: [
+        {
+          gym_id: gym.id,
+          user_id: user.id,
+        },
+        {
+          gym_id: gym.id,
+          user_id: user.id,
+        },
+      ],
+    })
+
     // act
     const response = await request(app.server)
-      .post(`/check-in/${gym.id}`)
+      .get('/check-ins/metrics')
       .set('Authorization', `Bearer ${token}`)
-      .send({
-        latitude: 37.2750131,
-        longitude: -121.9756296,
-      })
+      .send()
 
     // assert
-    expect(response.statusCode).toEqual(201)
+    expect(response.statusCode).toEqual(200)
+    expect(response.body.checkInsCount).toEqual(2)
   })
 })

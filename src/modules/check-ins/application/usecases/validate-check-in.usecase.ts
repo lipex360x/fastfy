@@ -27,10 +27,10 @@ export class ValidateCheckInUseCase {
       throw new LateCheckInValidateError()
     }
 
-    await this.checkInRepository.save(checkIn)
-
     checkIn.validated_at = new Date()
 
-    return { checkIn }
+    const upatedCheckIn = await this.checkInRepository.save(checkIn)
+
+    return { checkIn: upatedCheckIn }
   }
 }

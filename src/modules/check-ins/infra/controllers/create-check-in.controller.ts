@@ -20,6 +20,6 @@ export class CreateCheckInController {
       latitude,
       longitude,
     })
-    return reply.send(201).send
+    return reply.status(201).send()
   }
 }
