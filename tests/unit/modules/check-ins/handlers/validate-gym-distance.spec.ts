@@ -1,4 +1,4 @@
-import { makeGym, makeUserDB } from 'tests/unit/mocks'
+import { makeGym, makeUserDB } from 'tests/unit/@mocks'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { ValidateGymDistanceHandler } from '@/modules/check-ins/application/handlers'

@@ -1,4 +1,4 @@
-import { makeCheckIn } from 'tests/unit/mocks'
+import { makeCheckIn } from 'tests/unit/@mocks'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { CountUserCheckInsUseCase } from '@/modules/check-ins/application/usecases'

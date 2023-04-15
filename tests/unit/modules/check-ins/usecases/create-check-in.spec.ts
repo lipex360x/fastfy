@@ -1,4 +1,4 @@
-import { makeUserDB } from 'tests/unit/mocks'
+import { makeUserDB } from 'tests/unit/@mocks'
 import { beforeAll, describe, expect, it } from 'vitest'
 
 import {

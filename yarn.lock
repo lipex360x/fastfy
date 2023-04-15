@@ -3629,9 +3629,9 @@ vite@*, "vite@^3.0.0 || ^4.0.0":
   optionalDependencies:
     fsevents "~2.3.2"
 
-"vitest-environment-prisma@file:tests/environments/vitest-environment-prisma":
+"vitest-environment-prisma@file:tests/configs/vitest-environment-prisma":
   version "1.0.0"
-  resolved "file:tests/environments/vitest-environment-prisma"
+  resolved "file:tests/configs/vitest-environment-prisma"
 
 "vitest@>=0.29.0 <1", vitest@0.29.7:
   version "0.29.7"
