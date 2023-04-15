@@ -1,4 +1,4 @@
-import { makeUser, makeUserDB } from 'tests/mocks'
+import { makeUser, makeUserDB } from 'tests/unit/mocks'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { CreateUserUseCase } from '@/modules/users/application/usecases'

@@ -1,4 +1,4 @@
-import { makeGym } from 'tests/mocks'
+import { makeGym } from 'tests/unit/mocks'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { CreateGymUseCase } from '@/modules/gyms/application/usecases'

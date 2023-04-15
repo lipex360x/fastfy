@@ -1,5 +1,5 @@
 import request from 'supertest'
-import { makeAuthUser } from 'tests/e2e/utils'
+import { makeAuthUser } from 'tests/e2e/mocks'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 import { app } from '@/http/app'

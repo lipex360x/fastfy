@@ -1,4 +1,4 @@
-import { makeUserDB } from 'tests/mocks'
+import { makeUserDB } from 'tests/unit/mocks'
 import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
 
 import { CreateCheckInHandler } from '@/modules/check-ins/application/handlers'
