@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify'
 import request from 'supertest'
 
-export async function createAndAuthUserHelper(app: FastifyInstance) {
+export async function makeAuthUser(app: FastifyInstance) {
   const createUser = {
     name: 'Jonn Doe',
     email: 'john@email.com',

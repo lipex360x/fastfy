@@ -1,5 +1,5 @@
 import request from 'supertest'
-import { createAndAuthUserHelper } from 'tests/e2e/helpers'
+import { makeAuthUser } from 'tests/e2e/utils'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 import { app } from '@/http/app'
@@ -14,7 +14,7 @@ describe('[e2e] - Get User Profile', () => {
 
   it('should be able to retrieve a profile', async () => {
     // arrange
-    const { token } = await createAndAuthUserHelper(app)
+    const { token } = await makeAuthUser(app)
 
     // act
     const profileResponse = await request(app.server)
