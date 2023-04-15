@@ -61,8 +61,8 @@ describe('CreateCheckInUseCase', () => {
     const { checkIn } = await sut.execute({
       userId: user.id,
       gymId: gym.id,
-      userLatitude: 37.127068,
-      userLongitude: -121.957982,
+      latitude: 37.127068,
+      longitude: -121.957982,
     })
 
     // assert
