@@ -1,4 +1,3 @@
-import { makeCheckIn } from 'tests/unit/@mocks'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { ListCheckInsUseCase } from '@/modules/check-ins/application/usecases'
@@ -15,13 +14,8 @@ describe('ListCheckInsUseCase', () => {
 
   it('should be able to list check ins', async () => {
     // arrange
-    await checkInRepository.create(
-      makeCheckIn({ gymId: 'gym-01', userId: 'user-01' }),
-    )
-
-    await checkInRepository.create(
-      makeCheckIn({ gymId: 'gym-02', userId: 'user-01' }),
-    )
+    await checkInRepository.create({ gym_id: 'gym-01', user_id: 'user-01' })
+    await checkInRepository.create({ gym_id: 'gym-02', user_id: 'user-01' })
 
     // act
     const { checkIns } = await sut.execute({ userId: 'user-01' })
@@ -43,9 +37,7 @@ describe('ListCheckInsUseCase', () => {
   it('should be able to list paginated check ins history', async () => {
     // arrange
     for (let i = 1; i <= 22; i++) {
-      await checkInRepository.create(
-        makeCheckIn({ gymId: `gym-${i}`, userId: 'user-01' }),
-      )
+      await checkInRepository.create({ gym_id: `gym-${i}`, user_id: 'user-01' })
     }
 
     // act

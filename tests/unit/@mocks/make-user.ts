@@ -1,5 +1,5 @@
 import { hash } from 'bcryptjs'
-import { randomUUID } from 'crypto'
+import { randomUUID } from 'node:crypto'
 import { User } from 'prisma/prisma-client'
 
 interface CreateUserProps {
