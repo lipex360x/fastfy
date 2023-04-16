@@ -5,12 +5,21 @@ import { env } from '@/core/env'
 import { checkInRoutes } from '@/modules/check-ins/infra/routes/check-in.routes'
 import { gymsRoutes } from '@/modules/gyms/infra/routes'
 import { usersRoutes } from '@/modules/users/infra/routes'
+import fastfyCookie from '@fastify/cookie'
 import fastifyJwt from '@fastify/jwt'
 
 export const app = fastify()
 
+app.register(fastfyCookie)
 app.register(fastifyJwt, {
   secret: env.JWT_SECRET,
+  cookie: {
+    cookieName: 'refreshToken',
+    signed: false,
+  },
+  sign: {
+    expiresIn: '10m',
+  },
 })
 
 app.register(usersRoutes)

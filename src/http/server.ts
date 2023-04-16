@@ -9,6 +9,5 @@ app
     port: env.PORT,
   })
   .then(() => {
-    console.log('🚀 HTTP Server Running')
-    console.log(version)
+    console.log(`🚀 HTTP Server Running. 🚪 Port: ${env.PORT} - 📦 v${version}`)
   })
