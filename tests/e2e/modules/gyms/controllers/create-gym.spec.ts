@@ -15,7 +15,7 @@ describe('[e2e] - Create Gym', () => {
 
   it('should be able to create a Gym', async () => {
     // arrange
-    const { token } = await makeAuthUser(app)
+    const { token } = await makeAuthUser(app, true)
 
     // act
     const response = await request(app.server)

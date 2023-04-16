@@ -15,7 +15,7 @@ describe('[e2e] - List Gyms', () => {
 
   it('should be able to list filtered gyms', async () => {
     // arrange
-    const { token } = await makeAuthUser(app)
+    const { token } = await makeAuthUser(app, true)
 
     await request(app.server)
       .post('/gym')

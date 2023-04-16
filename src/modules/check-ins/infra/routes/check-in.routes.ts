@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify'
 
-import { verifyJWT } from '@/http/middlewares'
+import { verifyJWT, verifyUserRole } from '@/http/middlewares'
 
 import {
   CreateCheckInController,
@@ -21,5 +21,9 @@ export async function checkInRoutes(app: FastifyInstance) {
   app.get('/check-ins/history', listCheckInsController.execute)
   app.get('/check-ins/metrics', countUserCheckInsController.execute)
 
-  app.patch('/check-in/validate/:checkInId', validateCheckInController.execute)
+  app.patch(
+    '/check-in/validate/:checkInId',
+    { onRequest: [verifyUserRole('ADMIN')] },
+    validateCheckInController.execute,
+  )
 }
