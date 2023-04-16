@@ -9,12 +9,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: mskelton/setup-yarn@v1
+      
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
-      
-      - run: yarn ci
+          cache: 'npm'
+    
+      - run: npm i
 
-      - run: yarn test
+      - run: npm run test
